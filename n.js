@@ -114,14 +114,14 @@ const movies = [
     },
 ]
 
-let iteration = 0;
-let pagecount = 1;
+let iteration = -1;
+let pagecount = 0;
 function buttonfunc(i){ 
         pagecount = i;
         iteration = (i)-1;
         document.querySelector('ol').innerHTML = '';
         document.querySelector('.buttons').innerHTML = '';
-        let myList = new ListWButtons(movies, 4)
+        let myList = new ListWButtons(movies, 5)
 }
 
 class ListWButtons {
@@ -136,7 +136,7 @@ class ListWButtons {
         document.querySelector('.buttons').appendChild(newButt);
     };
     for (let i = 0; i < obj.length; i++) {  
-        if (i < (liNum * pagecount) && i > (liNum * iteration)) {
+        if (i <= (liNum * pagecount) && i >= (liNum * iteration)) {
             let li = document.createElement('li')
             li.innerText = `${obj[i].Title}`;
             document.querySelector('ol').appendChild(li);
@@ -148,3 +148,42 @@ class ListWButtons {
 
 
 window.onload = () => {buttonfunc(1)};
+
+
+
+
+
+
+    // function buttonfunc(i){ 
+    //    pagecount = i;
+    //    iteration = (i)-1;
+    //    document.querySelector('ol').innerHTML = '';
+    //    document.querySelector('.buttons').innerHTML = '',
+    //    sdad(movies, 4)
+    // }
+    
+    
+    
+    
+    // let iteration = 0
+    // let pagecount = 1
+    // function sdad (obj, num ) {
+    //     let org=  Math.ceil(obj.length / num)
+    //     for (let i = 1; i <= num; i++) {
+    //         let newButt = document.createElement('span')
+    //         newButt.innerHTML = `<button onclick = buttonfunc(${[i]}) >${[i]}</button>`;
+    //         document.querySelector('.buttons').appendChild(newButt);
+    //     }
+    //     for (let i = 0; i < obj.length; i++) {  
+    //         if (i < (org * pagecount) && i > (org * iteration)) {
+    //             let li = document.createElement('li')
+    //             li.innerText = `${obj[i].Title}`;
+    //             document.querySelector('ol').appendChild(li);
+    //         } else if (i === obj.length) {
+                
+    //         }
+    //     }
+        
+    // }
+    
+    // window.onload = (buttonfunc(1)
